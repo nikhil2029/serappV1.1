@@ -45,7 +45,6 @@ if st.button('Predict'):
             model=load_model('CNN1DFIN.h5')
             res=model.predict(test)
             out=0
-            st.write(res)
             for i in range(len(res[0])):
                 if(res[0][i]==1.0):
                     out=i
@@ -54,6 +53,7 @@ if st.button('Predict'):
             model1=joblib.load("./RFFIN.joblib")
             out=model1.predict(test)
             out=int(out[0])
+        st.write("# "+ emotions[out])
     else:
         st.write("*please upload an audio file*")
     
